@@ -11,6 +11,10 @@
                 </div>
             </div>
         </div>
+
+        <div>
+        <p class="text-4xl font-bold text-center text-blue-500">Tailwindtest</p>
+        </div>        
     </div>
 </template>
 
