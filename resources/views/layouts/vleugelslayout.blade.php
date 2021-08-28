@@ -8,6 +8,7 @@
     <div data-theme="lofi" id="app" class="container-fluid"
          style="width:100%">
       <main data-theme="lofi" class="container-fluid" style="width:100%">
+        @include('partials.navbar')
         @yield('content')
       </main>
     </div>

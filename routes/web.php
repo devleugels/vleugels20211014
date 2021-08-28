@@ -20,3 +20,8 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/test', function() {
+    echo("Je heb op de knop gedrukt");
+    dd("hier stop ik");
+});

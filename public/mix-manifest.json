@@ -1,4 +1,19 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/css/app.css": "/css/app.css",
+    "/img/VAPH-logo.png": "/img/VAPH-logo.png",
+    "/img/bart-riemaecker.png": "/img/bart-riemaecker.png",
+    "/img/icon_1.svg": "/img/icon_1.svg",
+    "/img/icon_2.svg": "/img/icon_2.svg",
+    "/img/icon_4.svg": "/img/icon_4.svg",
+    "/img/icon_5.svg": "/img/icon_5.svg",
+    "/img/icon_6.svg": "/img/icon_6.svg",
+    "/img/internet.jpg": "/img/internet.jpg",
+    "/img/logovleugels.png": "/img/logovleugels.png",
+    "/img/luchtfotovleugels.jpeg": "/img/luchtfotovleugels.jpeg",
+    "/img/quote.png": "/img/quote.png",
+    "/img/rooms_2.jpg": "/img/rooms_2.jpg",
+    "/img/vlinder.jpg": "/img/vlinder.jpg",
+    "/img/vlinder.png": "/img/vlinder.png",
+    "/img/vlinder_oud.jpg": "/img/vlinder_oud.jpg"
 }
