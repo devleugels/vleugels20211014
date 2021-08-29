@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,5 +15,18 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // \App\Models\User::factory(10)->create();
+        DB::table('users')->insert([
+            'name' => 'administrator',
+            'email' => 'admin@vleugels.be',
+            'password' => bcrypt('vleugels'),
+            'adminlevel' => 1
+        ]); 
+          
+        DB::table('users')->insert([
+            'name' => 'superadministrator',
+            'email' => 'johan.calu@gmail.com',
+            'password' => bcrypt('vleugels'),
+            'adminlevel' => 2
+        ]);         
     }
 }
