@@ -50,6 +50,15 @@ class Knop extends Component
             case 'daisy' :
                 $klas = "btn btn-success";
                 break;
+            case 'knopje' :
+                $klas = "inline-block h-6 py-1 px-2 mx-1
+                         border-1
+                         text-sm align-text-top
+                         rounded-lg
+                         hover:no-underline
+                         no-underline
+                        ";
+                break;
             default :
                 $klas = "inline-block px-5 py-3 rounded-lg
                 transform transition bg-indigo-500 hover:bg-indigo-400
@@ -65,6 +74,10 @@ class Knop extends Component
             case 'blauw' : 
               $bg_text = "bg-blue-500 text-white";
               $hover_kleur = "hover:bg-blue-700";
+              break;
+            case 'lichtblauw' :
+              $bg_text = "bg-blue-50 text-black";
+              $hover_kleur = "bg-blue-400";
               break;
             case 'geel' :
               $bg_text = "bg-yellow-500 text-black";

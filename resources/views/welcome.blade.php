@@ -1,7 +1,15 @@
 @extends('layouts.vleugelslayout')
   
 @section('content')
-<div class="container-fluid" style="width:100%">
+<div class="min-h-screen">
+    @include('welcome.home')
+    @include('welcome.hotel')
+    @include('welcome.dagverblijf')
+    @include('welcome.therapie')
+    @include ('welcome.footer')
+</div>
+
+<!--div class="container-fluid" style="width:100%">
     <h1 class="flex text-center">welkom</h1>
     <example-component></example-component>
 </div>
@@ -13,6 +21,5 @@
 
 <div>
     <p class="text-4xl font-bold text-center">test voor x-component</p>
-    <!--  x-knop url="test" >{{__('Login')}}</x-knop -->
-</div>
+</div -->
 @endsection
