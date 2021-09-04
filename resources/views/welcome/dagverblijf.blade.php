@@ -6,7 +6,7 @@
 </div>
 
 @guest 
-  <x-dubbele-knop url1="detail/dagverblijf" tekst1="meer detail" url2="vraag/vraagstelling" tekst2="Stel je vraag"></x-dubbele-knop>
+  <x-dubbele-knop url1="detail/dagverblijf" tekst1="meer detail" url2="vraag" tekst2="Stel je vraag"></x-dubbele-knop>
 @else
   <x-dubbele-knop url1="detail/dagverblijf" tekst1="meer detail" url2="servicepack/dagverblijf/reserveren" tekst2="reserveren"></x-dubbele-knop>
 @endguest

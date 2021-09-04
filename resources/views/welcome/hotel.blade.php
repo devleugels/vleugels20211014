@@ -7,11 +7,11 @@
        <span>Geïnteresseerd? Wil je ons contacteren om informatie te ontvangen, druk dan op de knop 
            <x-knop url="detail" stijl="knopje" kleur="lichtblauw">Stel je vraag.</x-knop></span>
        <span>Wil je eerst wat meer informatie bekijken, druk dan op de knop 
-           <x-knop url="vraag/vraagstelling" stijl="knopje" kleur="lichtblauw">meer detail</x-knop></span>    
+           <x-knop url="vraag" stijl="knopje" kleur="lichtblauw">meer detail</x-knop></span>    
    </p>
 
    <!-- hier nu 2 knoppen -->
-   <x-dubbele-knop url1="detail" tekst1="meer detail" url2="vraag/vraagstelling" tekst2="Stel je vraag"></x-dubbele-knop>
+   <x-dubbele-knop url1="detail" tekst1="meer detail" url2="vraag" tekst2="Stel je vraag"></x-dubbele-knop>
  @else
    <p class="mt-4 text-xl box-content px-40">
        <span>Overnachten in de vleugels is steeds een aangename verrassing.</span>

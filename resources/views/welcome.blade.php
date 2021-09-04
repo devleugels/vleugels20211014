@@ -1,7 +1,7 @@
 @extends('layouts.vleugelslayout')
   
 @section('content')
-<div class="min-h-screen">
+<div class="min-h-screen w-screen" style="width:100%">
     @include('welcome.home')
     @include('welcome.hotel')
     @include('welcome.dagverblijf')

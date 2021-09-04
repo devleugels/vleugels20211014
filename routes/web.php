@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Controllers\VraagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/*** vraag *****/
+Route::resource('vraag', App\Http\Controllers\VraagController::class); 
 
 Route::get('/test', function() {
     echo("Je heb op de knop gedrukt");
