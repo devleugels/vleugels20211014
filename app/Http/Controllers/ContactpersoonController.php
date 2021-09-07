@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contactpersoon;
 use Illuminate\Http\Request;
+use Auth;
 
 class ContactpersoonController extends Controller
 {
@@ -24,7 +25,43 @@ class ContactpersoonController extends Controller
      */
     public function create()
     {
-        //
+        // $thisRequest = request()->all();
+        // $data = $thisRequest['origin'];      
+        // dd($data);
+
+        // echo("[ContactpersoonController@create] origin = ".json_encode($origin));
+        // maak een lege contactpersoon
+        $contactpersoon = array(
+            'id' => 0,
+            'voornaam' => '',
+            'familienaam' => '',
+            'straat' => '',
+            'huisnummer' => '',
+            'bus' => '',
+            'postcode' => '',
+            'gemeente' => '',
+            'telefoon' => '',
+            'gsm' => '',
+            'email' => '',
+           );
+          
+        $aangemeld = Auth::user();
+        $client_id = 0;
+
+        if ( isset($aangemeld)){
+            // LET OP -- user->id is niet noodzakelijk client_id
+            echo("[ContactpersoonController@create] controleer user en client_id");
+            $client_id = Auth::user()->id;
+            // TODO - isAdmin
+            echo("[ContactpersoonController@create] test of deze user admin is");
+        }            
+
+        $extra = array(
+            'isAdmin' => 0,
+            'client_id' => $client_id,
+        );
+//        dd("[contactpersoonController@create] voor return");           
+        return view('contactpersoon.create', compact('contactpersoon', 'extra'));           
     }
 
     /**

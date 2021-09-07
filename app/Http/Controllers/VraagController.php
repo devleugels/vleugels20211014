@@ -28,7 +28,13 @@ class VraagController extends Controller
                 'origin' => 'vraagcontroller',
             );
             // ga naar de contactpagina voor contactpersoon
-            return view('contactpersoon.create', compact('origin'));
+         //   return view('contactpersoon.create', compact('origin'));
+            return redirect()->action(
+                [ContactpersoonController::class, 'create']  // , ['origin' => $origin]
+            );
+        
+
+            // return view('contactpersoon.create', compact('origin'));
         };
     }
 

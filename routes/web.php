@@ -22,6 +22,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+/**** Contactpersoon ****/
+Route::resource('contactpersoon', App\Http\Controllers\ContactpersoonController::class);
+
 /*** vraag *****/
 Route::resource('vraag', App\Http\Controllers\VraagController::class); 
 
