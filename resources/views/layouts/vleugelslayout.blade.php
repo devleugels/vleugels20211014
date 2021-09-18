@@ -9,6 +9,7 @@
          style="width:100%">
       <main data-theme="lofi" class="container-fluid" style="width:100%">
         @include('partials.navbar')
+        @include('partials.flash')
         @yield('content')
       </main>
     </div>

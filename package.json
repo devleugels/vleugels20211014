@@ -27,6 +27,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "@tailwindcss/forms": "^0.3.3",
         "daisyui": "^1.13.2"
     }
 }

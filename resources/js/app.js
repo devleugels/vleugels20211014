@@ -22,11 +22,6 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component('contactpersoon', require('./components/contactpersoon/Fiche.vue').default);
-Vue.component('form.test', require('./components/form/test.vue').default);
-/*** componenten in form */
-Vue.component('form.input', require('./components/form/input.vue').default);
-Vue.component('form.label', require('./components/form/label.vue').default);
-
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -37,3 +32,7 @@ Vue.component('form.label', require('./components/form/label.vue').default);
 const app = new Vue({
     el: '#app',
 });
+
+$(function() {
+    setTimeout(function() { $("#hideDiv").fadeOut(5000); }, 5000)
+})

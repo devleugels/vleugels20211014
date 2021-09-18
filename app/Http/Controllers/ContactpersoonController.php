@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Contactpersoon;
 use Illuminate\Http\Request;
 use Auth;
+use Validator;
+use Illuminate\Support\Facades\DB;
 
 class ContactpersoonController extends Controller
 {
@@ -59,6 +61,7 @@ class ContactpersoonController extends Controller
         $extra = array(
             'isAdmin' => 0,
             'client_id' => $client_id,
+            'urlterug' => 'vraag/create',
         );
 //        dd("[contactpersoonController@create] voor return");           
         return view('contactpersoon.create', compact('contactpersoon', 'extra'));           
@@ -72,8 +75,44 @@ class ContactpersoonController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd("[ContactpersoonController@store] stop");
+        $data = $request['data'];
+        // dd("[ContactpersoonController@store] data = ".json_encode($data));
+
+        $validator = $this->valideer($data);
+
+        // spaar de gegevens
+        $contactpersoon = Contactpersoon::create($data);
+
+        $session_contactpersoon = array(
+            'contactpersoon' => $contactpersoon,
+            'creationtime' => time()
+        );
+        session(['contactpersoon' => $session_contactpersoon]);
+
+        $bericht = "De gegevens van de contacpersoon werden opgeslagen";
+        session()->flash('bericht', $bericht);        
+
+        return ['message' => 'test'];
     }
+
+    private function valideer($data)
+    {
+        // valideer
+        $validator = Validator::make( $data, [
+            'voornaam' => 'required | min:2',
+            'familienaam' => 'required | min:2',
+            'straat' => 'required | min:2',
+            'huisnummer' => 'required | min:1',
+            'postcode' => 'required | min:4',
+            'gemeente' => 'required | min:2',
+            // 'telefoon' => 'required | min:2',
+            // 'gsm' => 'required | min:2',
+            // 'email' => 'sometimes|email:rfc,dns'
+        ])->validate();
+        
+        return $validator;
+    }   
 
     /**
      * Display the specified resource.
@@ -94,7 +133,7 @@ class ContactpersoonController extends Controller
      */
     public function edit(Contactpersoon $contactpersoon)
     {
-        //
+        dd("[ContactpersoonController@edit] contactpersoon = ".json_encode($contactpersoon));
     }
 
     /**
@@ -119,4 +158,28 @@ class ContactpersoonController extends Controller
     {
         //
     }
+
+
+    /**
+     * isAanwezig zal controleren in tabel contactpersoons
+     * of er reeds een persoon is geregistreerd met dezelfde
+     * voor- en familienaam
+     * 
+     * @param voornaam en familienaam
+     * @return true als voor- en familienaam bestaan
+     */
+    public function isAanwezig( )
+    {
+        $all = request()->all();
+        $voornaam = $all['voornaam'];
+        $familienaam = $all['familienaam'];
+        // echo("[ContactpersoonControllr@isAanwezig] voornaam = $voornaam en familienaam = $familienaam ");
+        // Zoek in tabel contactpersoons of deze reeds bestaat
+        $query = DB::table('contactpersoons')
+                    ->where('voornaam', $voornaam )
+                    ->where('familienaam', $familienaam);
+        //echo("[ContactpersoonControllr@isAanwezig] aantal in query = ".$query->count());
+        return $query->first();
+    }
+
 }

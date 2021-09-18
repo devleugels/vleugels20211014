@@ -28,10 +28,9 @@
       alert="Gelieve zoveel mogelijk velden in te vullen" />
 
     <!-- de vue component contactpersoon -->
-    <contactpersoon />
-    @php 
-      echo("[contactpersoon.create na vue contactpersoon]");  
-    @endphp
-    
+    <contactpersoon
+      :data="{{ json_encode($contactpersoon) }}"
+      :extra="{{ json_encode($extra) }}" />
+          
 </section>
 @endsection 

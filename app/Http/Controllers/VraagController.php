@@ -45,7 +45,25 @@ class VraagController extends Controller
      */
     public function create()
     {
-        //
+        /** controleer of de contactpersoon gekend is */
+        if ( session()->has('contactpersoon'))
+        {
+            $session_contactpersoon = session()->get('contactpersoon');
+            $tijd = $session_contactpersoon['creationtime'];
+            // echo("[VraagController@create] creationtiem = ".$tijd."<p />\n");
+            if ( time() - $tijd > 300){
+                dd(' tijd verstreken ');
+            } else {
+                $contactpersoon = $session_contactpersoon['contactpersoon'];
+                // echo("[VraagController@create] contactpersoon = ".json_encode($contactpersoon)."<p />\n");
+            }
+
+        } else {
+            dd("[VraagController@create] meld geen contactpersoon gevonden ");
+        }
+
+        // Als we hier terechtkomen dan is er een valide contactpersoon doorgegeven
+        return view('vraag/create', compact('contactpersoon'));
     }
 
     /**
