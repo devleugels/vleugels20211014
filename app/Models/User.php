@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'adminlevel'
     ];
 
     /**
@@ -41,5 +42,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function isAdmin()
+    {
+        return $this->adminlevel > 0;
+    }
+
+    public function getAdminlevel()
+    {
+        return $this->adminlevel;
+    }
 
 }

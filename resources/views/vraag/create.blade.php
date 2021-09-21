@@ -3,7 +3,7 @@
 @section('content')
 <section class="w-screen">
     <!-- de titel -->
-    <p class="mt-4 text-4xl font-bold text-center">Contactpersoon gegevens</p>
+    <p class="titel">Contactpersoon gegevens</p>
 
     @php 
        // echo("[vraag.create] contactpersoon = ".json_encode($contactpersoon));
