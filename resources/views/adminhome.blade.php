@@ -55,14 +55,14 @@
         <div class="adminrij">
             <div>
                 @php
-                    $aantal_openstaande_contactpersonen = 2;
+                    $aantal = 0;
                     $info = [
-                        'header' => 'Contactpersonen ( en intake )',
+                        'header' => 'Emailadressen',
                         'icon' => 'fa-envelope',
-                        'text' => 'Overzicht van de contactpersonen en intake',
-                        'button' => 'contactpersonen',
-                        'href' => '/contactpersoon',
-                        'aantal' => $aantal_openstaande_contactpersonen,
+                        'text' => 'De bijzondere e-mailadressen van de vleugels worden hier bijgehouden',
+                        'button' => 'email adressen',
+                        'href' => '/emailadressen',
+                        'aantal' => $aantal,
                     ];
                 @endphp
                 @include('admin.card', $info);

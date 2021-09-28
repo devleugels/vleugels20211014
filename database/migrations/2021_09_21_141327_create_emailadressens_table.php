@@ -15,6 +15,8 @@ class CreateEmailadressensTable extends Migration
     {
         Schema::create('emailadressens', function (Blueprint $table) {
             $table->id();
+            $table->string('naam');
+            $table->string('email');
             $table->timestamps();
         });
     }

@@ -29,6 +29,7 @@
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.4",
         "@tailwindcss/forms": "^0.3.3",
-        "daisyui": "^1.13.2"
+        "daisyui": "^1.13.2",
+        "laravel-vue-pagination": "^2.3.1"
     }
 }

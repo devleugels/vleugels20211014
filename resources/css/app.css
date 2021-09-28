@@ -81,6 +81,12 @@
         -webkit-animation: cssAnimation 5s forwards; 
         animation: cssAnimation 5s forwards;
     }   
+
+    .flash{
+        @apply text-2xl flex text-center bg-blue-500 text-white font-bold
+        fixed bottom-0 right-0  rounded-xl shadow-lg border px-6 py-5 my-8 mx-6
+        hideMe z-50
+      }
     
     .titel {
         @apply mt-4 text-4xl font-bold text-center
@@ -112,6 +118,20 @@
 
     .adminrij {
         @apply flex flex-row gap-4
+    }
+
+    .kader {
+        @apply container w-full bg-white border-4 px-40 text-2xl mt-10 mx-8
+    }
+    .tabelcontainer {
+        display: grid;
+        grid-auto-flow: column;
+        font-size: 1.25rem;
+        line-height: 1.75rem;
+    }
+
+    .tabelknop {
+        @apply  mx-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-5 px-4 rounded text-base
     }
 
 }

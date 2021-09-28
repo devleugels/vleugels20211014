@@ -41,6 +41,14 @@ Route::get('/home', function(){
 Route::get('contactpersoon/isaanwezig', [App\Http\Controllers\ContactpersoonController::class, 'isAanwezig']);
 Route::resource('contactpersoon', App\Http\Controllers\ContactpersoonController::class);
 
+/*** Emailadressen */
+Route::get('emailadressen/{emailadressen}/delete', [App\Http\Controllers\EmailadressenController::class, 'delete']);
+/*Route::get('emailadressen/{id}/delete', function(){
+    echo("delete");
+    dd("stop");
+});*/
+Route::resource('emailadressen', App\Http\Controllers\EmailadressenController::class);
+
 /*** vraag *****/
 Route::resource('vraag', App\Http\Controllers\VraagController::class); 
 

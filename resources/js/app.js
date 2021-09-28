@@ -23,6 +23,9 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 Vue.component('getal-cirkel', require('./components/GetalCirkel.vue').default);
 
 Vue.component('contactpersoon', require('./components/contactpersoon/Fiche.vue').default);
+Vue.component('emailadressen', require('./components/Emailadressen.vue').default);
+Vue.component('tabel', require('./components/Tabel.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
