@@ -70,14 +70,13 @@
 
             <div>
                 @php
-                    $aantal_openstaande_contactpersonen = 2;
                     $info = [
-                        'header' => 'Contactpersonen ( en intake )',
+                        'header' => 'Contactinfo ( de vleugels )',
                         'icon' => 'fa-envelope',
-                        'text' => 'Overzicht van de contactpersonen en intake',
-                        'button' => 'contactpersonen',
-                        'href' => '/contactpersoon',
-                        'aantal' => $aantal_openstaande_contactpersonen,
+                        'text' => 'De gegevens van de vleugels kan je hier editeren',
+                        'button' => 'contactinfo',
+                        'href' => '/contactinfo/1/edit',
+                        'aantal' => 0,
                     ];
                 @endphp
                 @include('admin.card', $info);

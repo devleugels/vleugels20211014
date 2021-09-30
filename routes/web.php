@@ -37,6 +37,9 @@ Route::get('/home', function(){
          return view('adminhome'); // toon de splashscreen voor de admin
  });
 
+ /*** Contactinfo ***/
+ Route::resource('contactinfo', App\Http\Controllers\ContactinfoController::class);
+
 /**** Contactpersoon ****/
 Route::get('contactpersoon/isaanwezig', [App\Http\Controllers\ContactpersoonController::class, 'isAanwezig']);
 Route::resource('contactpersoon', App\Http\Controllers\ContactpersoonController::class);

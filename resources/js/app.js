@@ -22,6 +22,7 @@ window.Vue = require('vue').default;
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('getal-cirkel', require('./components/GetalCirkel.vue').default);
 
+Vue.component('contactinfo', require('./components/Contactinfo.vue').default);
 Vue.component('contactpersoon', require('./components/contactpersoon/Fiche.vue').default);
 Vue.component('emailadressen', require('./components/Emailadressen.vue').default);
 Vue.component('tabel', require('./components/Tabel.vue').default);

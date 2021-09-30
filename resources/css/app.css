@@ -5,6 +5,10 @@
 
 @layer base {
 
+    .formcontainer{
+        @apply container w-full text-2xl mx-auto
+    }
+
     .formclass{
         @apply w-full border-4 border-blue-900 
     },
