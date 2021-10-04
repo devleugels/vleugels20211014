@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Emailadressen;
 use Illuminate\Http\Request;
 use Validator;
+use Redirect;
+use App\Http\Controllers\ContactinfoController;
 
 class EmailadressenController extends Controller
 {
@@ -167,6 +169,8 @@ class EmailadressenController extends Controller
             dd("[EmailadressenController@update] spring naar fouten pagina");
         }
 
+session(['fout' => "[EmailadressenController@update] test"]);
+return ['fout' => 'dit is fout'];
         $emailadres->naam = $data['naam'];
         $emailadres->email = $data['email'];
         $emailadres->save();
@@ -212,5 +216,6 @@ class EmailadressenController extends Controller
         return redirect('/emailadressen');
 
     }    
+
 
 }

@@ -143,4 +143,28 @@ class ContactinfoController extends Controller
     {
         //
     }
+
+    /**
+     * toon de fout ( als er een is) en ook alle
+     * info van de vleugels, zodat het kan bereikt worden
+     * 
+     * @param $fout = is de fout dat we willen weergeven
+     * @return view
+     */
+    public function showFout()
+    {
+        $fout = "fout onbekend";
+        if ( request()->session()->has('fout')){
+            $fout = session('fout');
+        }
+
+        // haal nu ook de contactinfo
+        try {
+            $contactinfo = Contactinfo::find(1)->first();
+        } catch ( Exception $e){
+            $fout .= "<br /> met exception $e";
+        }
+
+        return view('contactpagina', compact('fout', 'contactinfo'));
+    }
 }

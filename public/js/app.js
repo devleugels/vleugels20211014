@@ -2076,7 +2076,14 @@ __webpack_require__.r(__webpack_exports__);
         // alert("[Emailadressen.vue@onSubmit] id != 0");
         this.form.patch('/emailadressen/' + this.form.id).then(function (response) {
           // alert("[Emailadressen.vue@onSubmit] response = " + JSON.stringify(response) );
-          var url = "https://" + window.location.hostname + "/" + _this.extra.urlterug;
+          var url = "https://" + window.location.hostname + "/";
+
+          if (response.fout) {
+            url += 'showFout';
+          } else {
+            url += _this.extra.urlterug;
+          }
+
           window.location = url;
         })["catch"](function (error) {
           alert("[Emailadressen.vue@onSubmit] error = " + JSON.stringify(error));

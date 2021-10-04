@@ -38,6 +38,7 @@ Route::get('/home', function(){
  });
 
  /*** Contactinfo ***/
+ Route::get('showFout',  [App\Http\Controllers\ContactinfoController::class, 'showFout']);
  Route::resource('contactinfo', App\Http\Controllers\ContactinfoController::class);
 
 /**** Contactpersoon ****/

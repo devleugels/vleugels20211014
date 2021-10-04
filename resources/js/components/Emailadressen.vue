@@ -74,7 +74,13 @@ export default{
                 this.form.patch('/emailadressen/' + this.form.id)
                   .then( response => {
                       // alert("[Emailadressen.vue@onSubmit] response = " + JSON.stringify(response) );
-                      var url = "https://" + window.location.hostname + "/" + this.extra.urlterug;
+                      var url = "https://" + window.location.hostname + "/";
+                      if ( response.fout){
+                          url += 'showFout';
+                      } else {
+                          url += this.extra.urlterug;
+                      }
+                      
                       window.location = url;
 
                   })
