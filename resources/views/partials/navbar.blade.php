@@ -11,7 +11,7 @@
   <div class="navbar-end flex-none  px-2 mx-2 lg:flex">
     @guest
       <x-knop url="{{ route('login') }}" stijl="menubalk" kleur="blauw">{{ __('Login') }}</x-knop>
-      <x-knop url="vraag" stijl="menubalk" kleur="blouw">Stel je vraag</x-knop>
+      <x-knop url="/vraag" stijl="menubalk" kleur="blouw">Stel je vraag</x-knop>
     @else
       <div>geen guest - dus aangemeld</div>
     @endguest 
