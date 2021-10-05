@@ -5,7 +5,6 @@
     <!-- het uitlegkader --> 
 
     @php
-
        $kort = "contactpagina";
        $uitgebreid = "Op deze pagina krijg je een foutmelding. Wil je dit"
          ." dit foutbericht melden aan de vleugels, waarvan je alle"
@@ -44,4 +43,13 @@
         <div class="w-full mx-4 pt-4">telefoon : {{ $contactinfo->telefoon }}</div>
         <div class="w-full mx-4 pt-2">e-mail : {{ $contactinfo->email->email }}</div>    
     </div>
+
+    @php
+    /** de sessievariabele fout verwijderen */
+    // echo("[test] ".json_encode(session()->all())."<br />");
+    if ( session()->has('fout')){
+        session()->forget('fout');
+    }
+    // dd( session()->all() );  
+    @endphp
 @endsection

@@ -140,11 +140,11 @@
 
     .boxborderkleur{
         --tw-border-opacity: 1;
-        border-color: rgba(153, 27, 27, var(--tw-border-opacity));
+        border-color: rgba(255, 251, 235, var(--tw-border-opacity));   
     }
 
     .box{
-        @apply container text-center text-2xl bg-yellow-200 border-4 rounded-full mx-4
+        @apply container text-center text-2xl bg-yellow-50 border-4 rounded-full mx-4
     }
 
 

@@ -166,14 +166,11 @@ class EmailadressenController extends Controller
         try {
             $emailadres = Emailadressen::findOrFail($data['id']);
         } catch ( Exception $e ) {
-            dd("fout");
+            $foutbericht = "[EmailadressenController@update] emailadres[".$data['id']."] niet gevonden - fout = ".json_encode( $e );
+            session([ 'fout' => $foutbericht ]);
+            return ['fout' => 'dit is fout'];   
         }
-
-        $e = "foutbericht";
-        session([ 'fout' => "[EmailadressenController@update] emailadres( $data['id'] ) niet gevonden - fout = ".json_encode($e) );
-        return ['fout' => 'dit is fout'];        
-
-
+         
         $emailadres->naam = $data['naam'];
         $emailadres->email = $data['email'];
         $emailadres->save();
