@@ -13,7 +13,18 @@
       <x-knop url="{{ route('login') }}" stijl="menubalk" kleur="blauw">{{ __('Login') }}</x-knop>
       <x-knop url="/vraag" stijl="menubalk" kleur="blouw">Stel je vraag</x-knop>
     @else
-      <div>geen guest - dus aangemeld</div>
+      /** de @ wegdoen 
+      if ( Auth::user()->isAdmin()) // admin 
+      elseif ( is contactpersoon) // contactpersoon
+      else ( is client ) // class_implements
+      endif
+      **/
+      @php
+        $user_id =  Auth::user()->id;
+        
+      @endphp
+      
+      
     @endguest 
   </div> 
 </div>

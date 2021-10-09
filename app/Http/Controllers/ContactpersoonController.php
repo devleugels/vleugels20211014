@@ -61,8 +61,9 @@ class ContactpersoonController extends Controller
         $extra = array(
             'isAdmin' => 0,
             'client_id' => $client_id,
-            'urlterug' => 'vraag/create',
+            'urlterug' => 'register',
         );
+// 'urlterug' => 'vraag/create',        
 //        dd("[contactpersoonController@create] voor return");           
         return view('contactpersoon.create', compact('contactpersoon', 'extra'));           
     }
@@ -89,6 +90,10 @@ class ContactpersoonController extends Controller
             'creationtime' => time()
         );
         session(['contactpersoon' => $session_contactpersoon]);
+
+        /** als de contactpersoon werd aangemaakt bij "stel je vraag"
+         *    ( je komt hier slechts als je niet was aangemeld )
+         */
 
         $bericht = "De gegevens van de contacpersoon werden opgeslagen";
         session()->flash('bericht', $bericht);        

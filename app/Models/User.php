@@ -53,4 +53,11 @@ class User extends Authenticatable
         return $this->adminlevel;
     }
 
+    public function contactpersoon()
+    {
+        // De User - geen admin - bezit een entry in Contactpersoon en dus
+        // zoeken we de Contactpersoon die hoort bij deze User
+        return $this->hasOne(Contactpersoon::class);
+    }       
+
 }

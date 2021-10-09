@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vraag;
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Helper;
 
 class VraagController extends Controller
 {
@@ -17,11 +18,42 @@ class VraagController extends Controller
     {
         if ( Auth::user()){
             // als je admin bent
-            //   ga naar de adminpagina voor dit onderdeel, 
-            //   maar wat moet je daar doen????
-            // anders contactpersoon of client
-            //   stel je vraag
-            echo("aangemeld");
+            if ( \Auth::User()->isAdmin()){
+                //   ga naar de adminpagina voor dit onderdeel, 
+            } 
+            // Je bent client of contactpersoon
+            //   Maak nu een sessie variabele current_active
+            $temp = null;
+            if ( session()->has('current_active')){
+                $temp = session()->get('current_active');
+            }
+      
+            if ( $temp == null){
+                // fout - meld dit
+                $foutbericht = "[VraagController@index] er is geen sessievariabele current_active ";
+                session(['fout' => $foutbericht]);
+               dd('fout in vraagcontroller@index met tem=null'); 
+                return route('showFout');
+            }
+
+            // haal de voor-en familienaam van de actieve user op
+            $volledigenaam = Helper::getVolledigenaam( $temp );
+
+            // haal nu het e-mail adres dat hoort bij deze login
+            //   ( indien client -> zoek de contactpersoon -> haal e-mail)
+            //   ( indien contactpersoon --> haal email )
+            $email = Helper::getEmailadres( $temp ); // temp - current_active
+            // dd("[VraagController@index] email = $email");
+            // nu halen we de soorten vragen ( in vraagrubrieken )
+            $vraagrubrieken = null; // TODO
+
+            /*** TIJDELIJK */
+            $vraagrubrieken = array(
+                'intake', 'algemeen', 'prijs', 'duur', 'accomodatie'
+            );
+            /** einde TIJDELIJK  */
+            return view('vraag.create', compact('email', 'vraagrubrieken', 'volledigenaam'));
+         
         } else {
             // We onthouden dat we van hier komen
             $origin = array(

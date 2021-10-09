@@ -153,18 +153,18 @@ class ContactinfoController extends Controller
      */
     public function showFout()
     {
-        $fout = "fout onbekend";
+        $foutbericht = "fout onbekend";
         if ( request()->session()->has('fout')){
-            $fout = session('fout');
+            $foutbericht = session('fout');
         }
 
         // haal nu ook de contactinfo
         try {
             $contactinfo = Contactinfo::find(1)->first();
         } catch ( Exception $e){
-            $fout .= "<br /> met exception $e";
+            $foutbericht .= "<br /> met exception $e";
         }
 
-        return view('contactpagina', compact('fout', 'contactinfo'));
+        return view('contactpagina', compact('foutbericht', 'contactinfo'));
     }
 }

@@ -24,8 +24,12 @@ class CreateContactpersoonsTable extends Migration
             $table->string('gemeente');
             $table->string('telefoon')->nullable();
             $table->string('gsm')->nullable();
-            $table->string('email')->nullable();        
+            $table->string('email')->nullable();    
+            $table->unsignedBigInteger('user_id')->nullable();    
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')
+              ->on('users')->onDelete('cascade');
         });
     }
 

@@ -18,17 +18,35 @@
 
 
     @php 
-    /**
-    echo("[contactpagina] fout = ".json_encode($fout)."<br />");
-    echo("[contactpagina] contactinfo = ".json_encode($contactinfo)."<br />");
-    dd("stop");
-    */
+    if ( session()->has('fout')){
+        $foutbericht = session()->get('fout');
+    } else {
+        $foutbericht = "niet gevonden";
+    }
+    // echo("[contactpagina] foutbericht = ".json_encode($foutbericht)."<br />");
+    // We halen nu de contactinfo op 
+    $contactinfo = App\Models\Contactinfo::find(1)->first();
+    // echo("[contactpagina] contactinfo = ".json_encode($contactinfo)."<br />");
+    if ( !$contactinfo){
+        // fout - meld dit samen met de originele foutbericht
+        $foutbericht .= "<p>ook de contactinfo niet bereikbaar";
+
+        $contactinfo = (object)[
+            'afzendernaam' => 'onbekend',
+            'straat' => 'onbekend',
+            'huisnummer' => 'onbekend',
+            'postcode' => 'onbekend',
+            'gemeente' => 'onbekend',
+            'telefoon' => 'onbekend',
+            'email' => 'onbekend',
+        ];
+    } 
     @endphp
 
     <!-- het foutbericht -->
     <div class="titel">het foutbericht</div>
     <div class="box boxborderkleur">
-        {{ $fout }}
+        {{ $foutbericht }}
     </div>
 
     <!-- de contactinfo -->

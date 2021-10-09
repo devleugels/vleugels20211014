@@ -12,5 +12,10 @@ class Contactpersoon extends Model
     protected $fillable = [
         'voornaam', 'familienaam', 'straat','huisnummer','bus',
         'postcode', 'gemeente', 'telefoon', 'gsm', 'email'
-      ];     
+      ];   
+      
+      public function user()
+      {
+          return $this->belongsTo(User::class);
+      }      
 }

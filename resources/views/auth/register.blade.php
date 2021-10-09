@@ -1,6 +1,20 @@
-@extends('layouts.app')
+@extends('layouts.vleugelslayout')
 
 @section('content')
+@php
+// extends layouts.php
+    $naam = "";
+    $emailadres = "";
+    if ( session()->has('contactpersoon')){
+        $contactpersoon = session()->get('contactpersoon')['contactpersoon'];
+        // dd($contactpersoon);
+        $naam = $contactpersoon->voornaam." ".$contactpersoon->familienaam;
+        $emailadres = $contactpersoon->email;
+        // dd(" naam = $naam en emailadres = $emailadres");
+        // dd("bestaat / naam = $naam en email = $emailadres");
+    }
+@endphp
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -15,7 +29,9 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <!-- input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus -->
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $naam }}" required autocomplete="name" autofocus>
+
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +45,9 @@
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <!-- input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" -->
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $emailadres }}" required autocomplete="email">
+
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
