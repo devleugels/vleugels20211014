@@ -32,6 +32,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             EmailadressenSeeder::class,
             ContactinfoSeeder::class,
+            VraagrubriekSeeder::class,
         ]);
     }
 }

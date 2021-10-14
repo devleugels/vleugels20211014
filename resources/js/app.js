@@ -26,6 +26,7 @@ Vue.component('contactinfo', require('./components/Contactinfo.vue').default);
 Vue.component('contactpersoon', require('./components/contactpersoon/Fiche.vue').default);
 Vue.component('emailadressen', require('./components/Emailadressen.vue').default);
 Vue.component('tabel', require('./components/Tabel.vue').default);
+Vue.component('vraagrubrieklijst', require('./components/vraagrubriek/VraagrubriekLijst.vue').default);
 
 
 /**

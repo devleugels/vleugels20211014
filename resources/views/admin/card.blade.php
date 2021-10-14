@@ -12,6 +12,7 @@
         </div>
         <div class="cardknop">
             <a href="{{ $href }}" class="cardknop">{{ $button }}</a>
+            <!--a href="{{ $href }}" class="btn btn-primary">{{ $button }}</a -->
         </div>
     </div>
 </div>

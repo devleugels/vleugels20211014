@@ -60,3 +60,6 @@ Route::get('/test', function() {
     echo("Je heb op de knop gedrukt");
     dd("hier stop ik");
 });
+
+/*** vraagrubriek */
+Route::resource('vraagrubriek', App\Http\Controllers\VraagrubriekController::class);
